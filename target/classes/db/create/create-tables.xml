@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="roma">
+
+        <!-- Table users-->
+        <createTable tableName="user">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="surname" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="middle_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="birthday" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="sex" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="country_city_birth" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="login" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="password" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="role_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="setting_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Table roles-->
+        <createTable tableName="role">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="role_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Table photo-->
+        <createTable tableName="photo">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="path" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Table setting-->
+        <createTable tableName="setting">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="vision_for_anonymous" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="vision_for_non_friend" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="vision_friends" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="vision_presents" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="vision_groups" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="vision_sex" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="vision_age" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="vision_country_city" type="varchar(50)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+
+        <!-- Table user_friendship-->
+        <createTable tableName="user_friendship">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="from_user_id" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="from_user_id"
+                             referencedTableName="user" referencedColumnNames="id" deleteCascade="true"/>
+            </column>
+            <column name="to_user_id" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="to_user_id"
+                             referencedTableName="user" referencedColumnNames="id" deleteCascade="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!--Added dialog between Users-->
+    <changeSet id="2" author="roma">
+
+
+        <!--Table dialog-->
+        <createTable tableName="dialog">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="from_user_id" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="from_message_user_id"
+                             referencedTableName="user" referencedColumnNames="id" deleteCascade="true"/>
+            </column>
+            <column name="to_user_id" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="to_message_user_id"
+                             referencedTableName="user" referencedColumnNames="id" deleteCascade="true"/>
+            </column>
+        </createTable>
+
+        <!--Table message-->
+        <createTable tableName="message">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="add_by_user_id" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="add_by_user_id"
+                             referencedTableName="user" referencedColumnNames="id" deleteCascade="true"/>
+            </column>
+            <column name="text_comment" type="varchar(1500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="add_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="add_time" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="3" author="1">
+
+        <createTable tableName="dialog_message">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="dialog_id" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="dialog_id"
+                             referencedTableName="dialog" referencedColumnNames="id" deleteCascade="true"/>
+            </column>
+            <column name="message_id" type="int">
+                <constraints nullable="false"
+                             foreignKeyName="message_id"
+                             referencedTableName="message" referencedColumnNames="id" deleteCascade="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

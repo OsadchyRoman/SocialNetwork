@@ -1,0 +1,358 @@
+#container {
+    margin-left: 30%;
+    display: inline-block;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+    overflow: auto;
+}
+
+.modalDialog:target {
+    display: block;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 700px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover {
+    background: #00d9ff;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+#menu {
+    float: left;
+    border: 1px solid #333;
+    width: 200px;
+    padding: 5px;
+}
+
+#menu hr {
+    margin: 0;
+}
+
+#menu li {
+    list-style-type: none;
+    padding-top: 3px;
+    position: static;
+}
+
+#menu a {
+    display: block;
+    padding: 2px;
+    margin: 1px;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    border: 1px dashed #634f36;
+    margin: 0;
+}
+
+#exit {
+    margin-top: 5px;
+}
+
+#content {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #333;
+    display: inline-block;
+    float: left;
+    width: 500px;
+}
+
+#user-data {
+    display: inline-block;
+    margin-left: 10%;
+}
+
+#nick-name {
+    text-align: center;
+    font-size: 25px;
+    font-family: Monotype Corsiva;
+}
+
+#central-information {
+    padding-left: 20px;
+}
+
+#user-information {
+    display: inline-block;
+    text-align: left;
+    float: right;
+    margin-left: 2em;
+}
+
+#photo-healpful-button {
+    display: inline-block;
+    width: 200px;
+}
+
+#user-photo {
+    height: 200px;
+    width: 100%;
+    background-color: blue;
+}
+
+#messageTextarea {
+    outline: none;
+    resize: none;
+    border-radius: 2px;
+    border-width: 2px;
+    font-size: 18pt;
+    background: #ecf0f1;
+    overflow: auto;
+}
+
+.line {
+    margin-top: 3px;
+    margin-bottom: 2px;
+    border-bottom: 2px groove #333;
+}
+
+.dialog {
+    display: inline-block;
+    font-family: Georgia;
+    border-bottom: 2px solid #7FFFD4;
+    height: 120px;
+    background-color: #E0FFFF;
+    border-radius: 60px;
+    margin-top: 30px;
+}
+
+.dialog:hover {
+    background-color: #87CEFA;
+}
+
+.dialog-last-message {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.photo-interlocutor {
+    height: 100px;
+    width: 100px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-color: blue;
+    float: left;
+    border-radius: 80px;
+}
+
+.lable {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.photo-whom-last-message {
+    height: 80px;
+    width: 80px;
+    background-color: pink;
+    float: left;
+    margin-left: 10px;
+    border-radius: 80px;
+}
+
+.last-message-dialog {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 3px;
+    margin-right: 5px;
+    width: 450px;
+    border-radius: 40px;
+    border-top: 2px solid #7FFFD4;
+    border-bottom: 2px solid #7FFFD4;
+    border-right: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.time-and-message {
+    margin-right: 5px;
+    padding-top: 7px;
+    border-top: 0.1px solid #7FFFD4;
+    padding-right: 15px;
+}
+
+.message {
+    float: left;
+}
+
+.time {
+    float: right;
+    font-family: Alternate Gothic;
+    margin-left: 20px;
+}
+
+.whom-last-message {
+    margin-bottom: 5px;
+}
+
+#viewHealpfulButtons {
+    margin-top: 30px;
+    display: inline-block;
+}
+
+#healpfulButton {
+    display: inline-block;
+}
+
+.button {
+    display: inline-block;
+    font-family: "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    padding: 0.8em 1.4em;
+    padding-right: 4.7em;
+    background: #009ED8;
+    border: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.button:before,
+.button:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    width: 2.8em;
+    content: "\00a0";
+    font-family: 'FontAwesome', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    transition: 0.2s;
+    transform-origin: 50% 60%;
+}
+
+.button:before {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background: #0079a5;
+}
+
+.button:active,
+.button:focus {
+    background: #002e3f;
+    outline: none;
+}
+
+.button {
+    min-width: 15em;
+}
+
+.email {
+    background: #009ED8;
+}
+
+.email:hover {
+    background: #0079a5;
+}
+
+.email:active,
+.email:focus {
+    background: #963d82;
+}
+
+.email:after {
+    content: "\F0E0";
+}
+
+.email:hover:after {
+    -webkit-animation: none;
+    -webkit-transform: skew(-20deg);
+    animation: none;
+    transform: skew(-20deg);
+    text-indent: 0.1em;
+}
+
+@-webkit-keyframes bounceright {
+    from {
+        -webkit-transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(3px);
+    }
+}
+
+@-webkit-keyframes wiggle {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(30deg);
+    }
+}
+
+@keyframes bounceright {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(3px);
+    }
+}
+
+@keyframes wiggle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(30deg);
+    }
+}
+
